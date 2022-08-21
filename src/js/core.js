@@ -349,9 +349,10 @@ const photoBooth = (function () {
         }
     };
 
-    api.shellCommand = function ($mode) {
+    api.shellCommand = function ($mode, $filename='') {
         command = {
-            mode: $mode
+            mode: $mode,
+            filename: $filename
         };
 
         photoboothTools.console.log('Run', $mode);
@@ -863,7 +864,7 @@ const photoBooth = (function () {
         preloadImage.src = imageUrl;
 
         if (config.post_photo.cmd) {
-            api.shellCommand('post-command');
+            api.shellCommand('post-command', filename);
         }
 
         takingPic = false;
